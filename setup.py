@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 # Provided Package Metadata
 NAME = "dirhash"
 DESCRIPTION = "Produce a checksum, similar to a hash, for directories."
-VERSION = "0.0.1"
+VERSION = "0.1.0"
 AUTHOR = "Brian Balsamo"
 AUTHOR_EMAIL = "Brian@BrianBalsamo.com"
 URL = 'https://github.com/bnbalsamo/dirhash'

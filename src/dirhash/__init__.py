@@ -2,7 +2,7 @@
 
 __author__ = "Brian Balsamo"
 __email__ = "brian@brianbalsamo.com"
-__version__ = "0.0.1"
+__version__ = "0.1.0"
 
 
 import argparse
