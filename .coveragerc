@@ -1,0 +1,5 @@
+[run]
+source = dirhash
+
+[report]
+fail_under = 80

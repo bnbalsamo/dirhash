@@ -11,7 +11,6 @@ Welcome to dirhash's documentation!
    :caption: Contents:
 
    autodoc
-   cli_help
 
 
 

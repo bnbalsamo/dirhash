@@ -1,0 +1,4 @@
+exclude *
+include LICNSE
+include setup.py
+graft src
