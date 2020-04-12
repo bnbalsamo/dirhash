@@ -10,16 +10,9 @@ AUTHOR_EMAIL = "Brian@BrianBalsamo.com"
 URL = 'https://github.com/bnbalsamo/dirhash'
 PYTHON_REQUIRES= ">=3.6,<4"
 INSTALL_REQUIRES = [
-    # Put "abstract" / loosely pinned requirements here
-    # See: https://caremad.io/posts/2013/07/setup-vs-requirement/
-    # Ex:
-    # 'requests'
+    "click"
 ]
 EXTRAS_REQUIRE = {
-    # Put "abstract" / loosely pinned requirements here
-    # See: https://caremad.io/posts/2013/07/setup-vs-requirement/
-    # Ex:
-    # 'webfrontend': {'flask'}
 }
 ENTRY_POINTS = {
     'console_scripts': [

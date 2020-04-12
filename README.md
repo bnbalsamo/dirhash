@@ -14,21 +14,30 @@ See the full documentation at https://dirhash.readthedocs.io
 
 # Usage
 ```
-usage: dirhash [-h] [-c CHUNKSIZE] [-a ALGO] [--dont-resolve-symlinks]
-               directory
+$ dirhash --help
+Usage: dirhash [OPTIONS] PATH
 
-positional arguments:
-  directory             The path to the directory to hash
+  Produce the hash of a file or directory.
 
-optional arguments:
-  -h, --help            show this help message and exit
-  -c CHUNKSIZE, --chunksize CHUNKSIZE
-                        How many bytes (maximum) of a file to read into RAM at
-                        once
-  -a ALGO, --algo ALGO  The algorithm to employ internally for generating the
-                        checksum
-  --dont-resolve-symlinks
-                        Whether or not to resolve symlinks in the directory.
+  Directory 'hashes', much like file hashes, when compared, can confirm that
+  each contains an identical series of bytes. In the case of the directory
+  'hash' these bytes must be an identical set of files, but all attributes
+  of the files except their contents is ignored.
+
+Options:
+  -a, --algorithm                 The name of the algorithm to use to generate
+                                  the checksum. Default: md5
+
+  -c, --chunksize INTEGER         How many bytes of files to read into RAM at
+                                  once while generating checksums. Default:
+                                  1000000
+
+  --resolve-symlinks / --dont-resolve-symlinks
+                                  Whether or not to resolve symlinks while
+                                  generating checksums and traversing the file
+                                  system. Default: True
+
+  --help                          Show this message and exit.
 ```
 
 # Implementation
@@ -63,7 +72,7 @@ section.
 
 ## Running autoformatters
 
-- ```tox -e run_black,run_isort
+- ```tox -e run_black,run_isort```
 
 ## Pinning Dependencies
 - ```pip install -r requirements/requirements_dev.txt```

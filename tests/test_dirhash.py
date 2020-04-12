@@ -1,3 +1,4 @@
+import hashlib
 import unittest
 from os import scandir
 from os.path import join
@@ -20,8 +21,18 @@ class Tests(unittest.TestCase):
         # occur after every test
         pass
 
-    def testPass(self):
-        self.assertEqual(True, True)
+    def test_file(self):
+        with TemporaryDirectory() as containing_dir:
+            filepath = uuid4().hex
+            containing_dir = Path(containing_dir)
+            with open(containing_dir / filepath, "wb") as f:
+                f.write(uuid4().bytes)
+            hasher = hashlib.md5()
+            with open(containing_dir / filepath, "rb") as f:
+                hasher.update(f.read())
+            self.assertEqual(
+                hasher.hexdigest(), dirhash.hash_entry(containing_dir / filepath)
+            )
 
     def testVersionAvailable(self):
         x = getattr(dirhash, "__version__", None)
@@ -95,9 +106,6 @@ class Tests(unittest.TestCase):
             h1 = dirhash.hash_dir(Path(dir1.name))
             h2 = dirhash.hash_dir(Path(dir2name))
             self.assertNotEqual(h1, h2)
-
-    def test_get_parser(self):
-        dirhash.get_parser()
 
 
 if __name__ == "__main__":
